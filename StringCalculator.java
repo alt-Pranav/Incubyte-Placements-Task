@@ -21,8 +21,9 @@ public class StringCalculator{
             if(i != ""){
                 sum += Integer.parseInt(i);
             }
+            //System.out.print(i+" ");
         }
-
+        //System.out.println(" and " + sum);
         return sum;
     }
 

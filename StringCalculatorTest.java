@@ -12,14 +12,17 @@ public class StringCalculatorTest {
     }
 
     static void testAdd(){
+        // null check
         if(StringCalculator.add(null) == 0) {logTest(TEST_ONE, SUCCESS);}
         else {logTest(TEST_ONE, FAIL);}
 
+        // empty string check
         if(StringCalculator.add("") == 0) {logTest(TEST_TWO, SUCCESS);}
         else {logTest(TEST_TWO, FAIL);}
 
-        if(StringCalculator.add("12") == 12){logTest(TEST_THREE, SUCCESS);}
-        else {logTest(TEST_THREE, SUCCESS);}
+        // valid number check
+        if(StringCalculator.add("11,222,3") == 236){logTest(TEST_THREE, SUCCESS);}
+        else {logTest(TEST_THREE, FAIL);}
     }
 
     static void logTest(String TEST, String STATE){

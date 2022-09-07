@@ -15,6 +15,9 @@ public class StringCalculatorTest {
 
     private final static String TEST_NINE = "NEW DELIMITER STRING";
 
+    private final static String TEST_TEN = "VALID ODD SUM STRING";
+    private final static String TEST_ELEVEN = "VALID EVEN SUM STRING";
+
     private final static String SUCCESS = " TEST was successful";
     private final static String FAIL = " TEST has failed";
 
@@ -64,6 +67,13 @@ public class StringCalculatorTest {
         else {logTest(TEST_NINE, FAIL);}
         if(StringCalculator.add("//;\n1;2;a") == 4){logTest(TEST_NINE, SUCCESS);}
         else {logTest(TEST_NINE, FAIL);}
+
+        // odd/even addition
+        // 0 means odd indices, 1 means even indices
+        if(StringCalculator.add("0//[**]1**2**3") == 2){logTest(TEST_TEN, SUCCESS);}
+        else {logTest(TEST_TEN, FAIL);}
+        if(StringCalculator.add("1//[**]1**222**3") == 4){logTest(TEST_ELEVEN, SUCCESS);}
+        else {logTest(TEST_ELEVEN, FAIL);}
     }
 
     /**

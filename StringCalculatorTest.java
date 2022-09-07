@@ -60,6 +60,8 @@ public class StringCalculatorTest {
         else {logTest(TEST_EIGHT, FAIL);}
 
         // new delimiter
+        if(StringCalculator.add("//[***]\n1***2***a") == 4){logTest(TEST_NINE, SUCCESS);}
+        else {logTest(TEST_NINE, FAIL);}
         if(StringCalculator.add("//;\n1;2;a") == 4){logTest(TEST_NINE, SUCCESS);}
         else {logTest(TEST_NINE, FAIL);}
     }

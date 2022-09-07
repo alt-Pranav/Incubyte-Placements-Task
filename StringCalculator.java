@@ -23,12 +23,18 @@ public class StringCalculator{
         String delim = ",";
 
         if(numbers.contains("//")){
-            delim = String.valueOf(numbers.charAt(2));
-            numbers = numbers.substring(3);
-            //System.out.println("NUMBERS = "+numbers);
+            if(numbers.contains("[")){
+                delim = numbers.substring(numbers.indexOf("[")+1, numbers.indexOf("]"));
+                System.out.println("DELIM = "+delim);
+                numbers = numbers.substring(numbers.indexOf("]")+1);
+            }
+            else{
+                delim = String.valueOf(numbers.charAt(2));
+                numbers = numbers.substring(3);
+            }
         }
 
-        String numList[] = numbers.split(delim);
+        String numList[] = numbers.split("[" + delim + "]+");
         ArrayList<String> negatives = new ArrayList<String>();
         int flag=0; // switched to 1 if negative numbers are present
         for(String i : numList){

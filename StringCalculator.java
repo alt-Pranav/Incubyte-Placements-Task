@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 /**
@@ -12,7 +13,7 @@ import java.util.regex.Pattern;
 
 public class StringCalculator{
 
-    static int add(String numbers){
+    static int add(String numbers)throws Exception{
 
         int sum=0;
 
@@ -35,6 +36,12 @@ public class StringCalculator{
                 {
                     if(Integer.parseInt(i) > 1000){continue;}
                     sum += Integer.parseInt(i);
+                }
+
+                // if negative number
+                else if(Pattern.compile("^[-]?\\d*$").matcher(i).matches()){
+                    if(Integer.parseInt(i) >= 0){continue;}
+                    throw new Exception("Negatives not allowed: "+i);
                 }
             }
             //System.out.print(i+" ");

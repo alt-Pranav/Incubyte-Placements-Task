@@ -2,8 +2,12 @@ public class StringCalculatorTest {
 
     private final static String TEST_ONE = "NULL STRING";
     private final static String TEST_TWO = "EMPTY STRING";
-    private final static String TEST_THREE = "VALID STRING";
-    private final static String TEST_FOUR = "INVALID STRING";
+
+    private final static String TEST_THREE = "VALID NUM STRING";
+    private final static String TEST_FOUR = "INVALID NUM STRING";
+
+    private final static String TEST_FIVE = "VALID ALPHA STRING";
+    private final static String TEST_SIX = "INVALID ALPHA STRING";
 
     private final static String SUCCESS = " TEST was successful";
     private final static String FAIL = " TEST has failed";
@@ -40,6 +44,10 @@ public class StringCalculatorTest {
 
         if(StringCalculator.add(testString) == testSum){logTest(TEST_THREE, SUCCESS);}
         else {logTest(TEST_THREE, FAIL);}
+
+        // valid alphabets check
+        if(StringCalculator.add("1,a,b,z") == 30){logTest(TEST_FIVE, SUCCESS);}
+        else {logTest(TEST_FIVE, FAIL);}
     }
 
     /**

@@ -21,18 +21,20 @@ public class StringCalculator{
         if(numbers == ""){return sum;}
 
         String numList[] = numbers.split(",");
+        ArrayList<String> negatives = new ArrayList<String>();
+        int flag=0; // switched to 1 if negative numbers are present
         for(String i : numList){
 
             if(i != ""){
 
                 // if lower case alphabet
-                if(Pattern.compile("^[a-z]+$").matcher(i).matches()){
+                if(flag==0 && Pattern.compile("^[a-z]+$").matcher(i).matches()){
                     // a = 1, ..,  z=26
                     sum += i.charAt(0) - 97 + 1;
                 }
 
                 // if number 
-                else if(Pattern.compile("^[0-9]+$").matcher(i).matches())
+                else if(flag==0 && Pattern.compile("^[0-9]+$").matcher(i).matches())
                 {
                     if(Integer.parseInt(i) > 1000){continue;}
                     sum += Integer.parseInt(i);
@@ -41,12 +43,18 @@ public class StringCalculator{
                 // if negative number
                 else if(Pattern.compile("^[-]?\\d*$").matcher(i).matches()){
                     if(Integer.parseInt(i) >= 0){continue;}
-                    throw new Exception("Negatives not allowed: "+i);
+                    negatives.add(i); // to keep track of all negative nums
+                    flag=1;
                 }
             }
             //System.out.print(i+" ");
         }
         //System.out.println(" and " + sum);
+
+        if(flag==1){
+            throw new Exception("Negatives not allowed: "+negatives.toString());
+        }
+
         return sum;
     }
 

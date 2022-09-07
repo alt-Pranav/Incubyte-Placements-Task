@@ -67,7 +67,7 @@ public class StringCalculatorTest {
 
         // negative numbers check
         try{
-            int result = StringCalculator.add("1,-1,9,2");
+            int result = StringCalculator.add("1,-1,9,-2,5,-7");
         }
         catch(Exception e){
             if(e.getMessage().contains("Negatives not allowed"))

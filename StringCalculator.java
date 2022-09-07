@@ -18,6 +18,9 @@ public class StringCalculator{
 
         String numList[] = numbers.split(",");
         for(String i : numList){
+
+            if( Integer.parseInt(i) > 1000){continue;}
+
             if(i != ""){
                 sum += Integer.parseInt(i);
             }

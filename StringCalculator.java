@@ -27,6 +27,15 @@ public class StringCalculator{
 
             if(i != ""){
 
+                if(i.contains("\n")){
+                    String temp[] = i.split("\n");
+                    i="";
+                    for(String t : temp){
+                        i+= t + ",";
+                    }
+                    sum += add(i.substring(0, i.length()));
+                }
+
                 // if lower case alphabet
                 if(flag==0 && Pattern.compile("^[a-z]+$").matcher(i).matches()){
                     // a = 1, ..,  z=26

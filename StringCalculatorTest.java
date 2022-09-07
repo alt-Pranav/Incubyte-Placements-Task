@@ -11,6 +11,8 @@ public class StringCalculatorTest {
 
     private final static String TEST_SEVEN = "NEGATIVE NUM STRING";
 
+    private final static String TEST_EIGHT = "NEWLINE NUM STRING";
+
     private final static String SUCCESS = " TEST was successful";
     private final static String FAIL = " TEST has failed";
 
@@ -50,6 +52,10 @@ public class StringCalculatorTest {
         // valid alphabets check
         if(StringCalculator.add("1,a,b,z") == 30){logTest(TEST_FIVE, SUCCESS);}
         else {logTest(TEST_FIVE, FAIL);}
+
+        // contains "\n"
+        if(StringCalculator.add("1\n2,3,a\n1") == 8){logTest(TEST_EIGHT, SUCCESS);}
+        else {logTest(TEST_EIGHT, FAIL);}
     }
 
     /**

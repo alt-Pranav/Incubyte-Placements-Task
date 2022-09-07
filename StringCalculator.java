@@ -16,6 +16,13 @@ public class StringCalculator{
         if(numbers == null){return sum;}
         if(numbers == ""){return sum;}
 
+        String numList[] = numbers.split(",");
+        for(String i : numList){
+            if(i != ""){
+                sum += Integer.parseInt(i);
+            }
+        }
+
         return sum;
     }
 

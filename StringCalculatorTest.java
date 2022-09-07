@@ -13,6 +13,8 @@ public class StringCalculatorTest {
 
     private final static String TEST_EIGHT = "NEWLINE NUM STRING";
 
+    private final static String TEST_NINE = "NEW DELIMITER STRING";
+
     private final static String SUCCESS = " TEST was successful";
     private final static String FAIL = " TEST has failed";
 
@@ -56,6 +58,10 @@ public class StringCalculatorTest {
         // contains "\n"
         if(StringCalculator.add("1\n2,3,a\n1") == 8){logTest(TEST_EIGHT, SUCCESS);}
         else {logTest(TEST_EIGHT, FAIL);}
+
+        // new delimiter
+        if(StringCalculator.add("//;\n1;2;a") == 4){logTest(TEST_NINE, SUCCESS);}
+        else {logTest(TEST_NINE, FAIL);}
     }
 
     /**
